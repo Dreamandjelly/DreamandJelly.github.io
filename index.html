@@ -9,28 +9,39 @@
   <meta name="google-site-verification" content="0jOYnLDhOATvQZMoyVm-X2jljOEAx0IdTWape5dNLlg" />
 
   <style>
-    /* Reset & base */
+    /* Reset & Base */
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; line-height: 1.5; color: #333; background: #f9f9f9; }
-    a { text-decoration: none; color: #1a73e8; }
-    header, footer { background: #1a73e8; color: #fff; padding: 1rem; }
-    nav ul { display: flex; list-style: none; gap: 1rem; }
-    nav a { color: #fff; font-weight: bold; }
+    body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #EFEFEF; color: #333; }
+    a { text-decoration: none; color: inherit; }
+    header, footer { background: #4A90E2; color: #fff; padding: 1rem; }
+    nav ul { display: flex; justify-content: center; gap: 2rem; list-style: none; }
+    nav a { font-weight: 600; }
 
     /* Hero */
-    .hero { text-align: center; padding: 3rem 1rem; background: #e8f0fe; }
-    .hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
-    .hero p { font-size: 1.2rem; }
+    .hero { background: linear-gradient(135deg, #4A90E2 0%, #50E3C2 100%); color: #fff;
+            text-align: center; padding: 4rem 1rem; }
+    .hero h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+    .hero p { font-size: 1.25rem; }
 
-    /* Game grid */
-    .games { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; padding: 2rem 1rem; }
-    .game-card { background: #fff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); overflow: hidden; display: flex; flex-direction: column; }
-    .game-card img { width: 100%; height: auto; }
-    .game-content { padding: 1rem; flex: 1; display: flex; flex-direction: column; }
-    .game-content h2 { margin-bottom: 0.5rem; }
+    /* Games Section */
+    .games { display: flex; flex-wrap: wrap; justify-content: center;
+              gap: 2rem; padding: 2rem 1rem; max-width: 1200px; margin: auto; }
+    .game-card { background: #fff; border-radius: 12px; overflow: hidden;
+                 box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 462px; }
+    .game-card img { display: block; width: 100%; height: auto; }
+    .game-content { padding: 1rem; display: flex; flex-direction: column; }
+    .game-content h2 { font-size: 1.75rem; margin-bottom: 0.5rem; color: #4A90E2; }
     .game-content p { flex: 1; margin-bottom: 1rem; }
-    .buy-button { align-self: flex-start; }
+    .buy-button form { display: inline-block; }
+    .buy-button input[type="submit"] {
+      background: #4A90E2; color: #fff; border: none; padding: 0.75rem 1.5rem;
+      border-radius: 6px; font-size: 1rem; cursor: pointer; transition: background 0.3s;
+    }
+    .buy-button input[type="submit"]:hover {
+      background: #357ABD;
+    }
 
+    /* Footer */
     footer { text-align: center; font-size: 0.9rem; }
   </style>
 </head>
@@ -47,45 +58,51 @@
 
   <section id="home" class="hero">
     <h1>Dream & Jelly Game Store</h1>
-    <p>Browse and buy our games: JumpCat and KanjiFlash</p>
+    <p>Discover our latest games: JumpCat and KanjiFlash!</p>
   </section>
 
   <section id="games" class="games">
     <!-- JumpCat Card -->
     <div class="game-card">
-      <img src="jumpcat-cover.jpg" alt="JumpCat Cover Art">
+      <img src="jumpcat.png" alt="JumpCat Cover Art" width="462" height="174">
       <div class="game-content">
         <h2>JumpCat</h2>
-        <p>Help our agile hero cat jump through challenging platforms and collect stars!</p>
-        <!-- Ecwid Buy Button for JumpCat -->
-        <div class="buy-button" id="buy-jumpcat"></div>
+        <p>Help our agile hero cat leap across platforms and collect stars in thrilling levels!</p>
+        <div class="buy-button">
+          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+            <input type="hidden" name="business" value="YOUR_PAYPAL_EMAIL" />
+            <input type="hidden" name="cmd" value="_xclick" />
+            <input type="hidden" name="item_name" value="JumpCat" />
+            <input type="hidden" name="amount" value="5.00" />
+            <input type="hidden" name="currency_code" value="USD" />
+            <input type="submit" value="Buy for $5" />
+          </form>
+        </div>
       </div>
     </div>
 
     <!-- KanjiFlash Card -->
     <div class="game-card">
-      <img src="kanjiflash-cover.jpg" alt="KanjiFlash Cover Art">
+      <img src="kanjiflash.png" alt="KanjiFlash Cover Art" width="462" height="174">
       <div class="game-content">
         <h2>KanjiFlash</h2>
-        <p>Learn and master Japanese Kanji with fun flashcards and quizzes!</p>
-        <!-- Ecwid Buy Button for KanjiFlash -->
-        <div class="buy-button" id="buy-kanjiflash"></div>
+        <p>Master Japanese Kanji through interactive flashcards and engaging quizzes!</p>
+        <div class="buy-button">
+          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+            <input type="hidden" name="business" value="YOUR_PAYPAL_EMAIL" />
+            <input type="hidden" name="cmd" value="_xclick" />
+            <input type="hidden" name="item_name" value="KanjiFlash" />
+            <input type="hidden" name="amount" value="7.00" />
+            <input type="hidden" name="currency_code" value="USD" />
+            <input type="submit" value="Buy for $7" />
+          </form>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Ecwid Store Embed (full store) -->
-  <div id="ecwid-store"></div>
-  <script type="text/javascript">
-    var ecwidScript = document.createElement("script");
-    ecwidScript.src = "https://app.ecwid.com/script.js?YOUR_STORE_ID";
-    ecwidScript.type = "text/javascript";
-    ecwidScript.async = true;
-    document.getElementById("ecwid-store").appendChild(ecwidScript);
-  </script>
-
   <footer id="contact">
-    <p>&copy; 2025 Dream & Jelly. Contact us at <a href="mailto:reportmybug@gmail.com">reportmybug@gmail.com</a>.</p>
+    <p>&copy; 2025 Dream & Jelly. Contact us at <a href="mailto:hello@dreamandjelly.com">hello@dreamandjelly.com</a>.</p>
   </footer>
 </body>
 </html>
