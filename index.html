@@ -3,13 +3,89 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Game Store</title>
+  <title>Dream & Jelly Game Store</title>
 
   <!-- Google Play site verification -->
   <meta name="google-site-verification" content="0jOYnLDhOATvQZMoyVm-X2jljOEAx0IdTWape5dNLlg" />
+
+  <style>
+    /* Reset & base */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; line-height: 1.5; color: #333; background: #f9f9f9; }
+    a { text-decoration: none; color: #1a73e8; }
+    header, footer { background: #1a73e8; color: #fff; padding: 1rem; }
+    nav ul { display: flex; list-style: none; gap: 1rem; }
+    nav a { color: #fff; font-weight: bold; }
+
+    /* Hero */
+    .hero { text-align: center; padding: 3rem 1rem; background: #e8f0fe; }
+    .hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    .hero p { font-size: 1.2rem; }
+
+    /* Game grid */
+    .games { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; padding: 2rem 1rem; }
+    .game-card { background: #fff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); overflow: hidden; display: flex; flex-direction: column; }
+    .game-card img { width: 100%; height: auto; }
+    .game-content { padding: 1rem; flex: 1; display: flex; flex-direction: column; }
+    .game-content h2 { margin-bottom: 0.5rem; }
+    .game-content p { flex: 1; margin-bottom: 1rem; }
+    .buy-button { align-self: flex-start; }
+
+    footer { text-align: center; font-size: 0.9rem; }
+  </style>
 </head>
 <body>
-  <h1>Welcome to My Game Store!</h1>
-  <p>This is a placeholder page. We will add more soon.</p>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#games">Games</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <h1>Dream & Jelly Game Store</h1>
+    <p>Browse and buy our games: JumpCat and KanjiFlash</p>
+  </section>
+
+  <section id="games" class="games">
+    <!-- JumpCat Card -->
+    <div class="game-card">
+      <img src="jumpcat-cover.jpg" alt="JumpCat Cover Art">
+      <div class="game-content">
+        <h2>JumpCat</h2>
+        <p>Help our agile hero cat jump through challenging platforms and collect stars!</p>
+        <!-- Ecwid Buy Button for JumpCat -->
+        <div class="buy-button" id="buy-jumpcat"></div>
+      </div>
+    </div>
+
+    <!-- KanjiFlash Card -->
+    <div class="game-card">
+      <img src="kanjiflash-cover.jpg" alt="KanjiFlash Cover Art">
+      <div class="game-content">
+        <h2>KanjiFlash</h2>
+        <p>Learn and master Japanese Kanji with fun flashcards and quizzes!</p>
+        <!-- Ecwid Buy Button for KanjiFlash -->
+        <div class="buy-button" id="buy-kanjiflash"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ecwid Store Embed (full store) -->
+  <div id="ecwid-store"></div>
+  <script type="text/javascript">
+    var ecwidScript = document.createElement("script");
+    ecwidScript.src = "https://app.ecwid.com/script.js?YOUR_STORE_ID";
+    ecwidScript.type = "text/javascript";
+    ecwidScript.async = true;
+    document.getElementById("ecwid-store").appendChild(ecwidScript);
+  </script>
+
+  <footer id="contact">
+    <p>&copy; 2025 Dream & Jelly. Contact us at <a href="mailto:reportmybug@gmail.com">reportmybug@gmail.com</a>.</p>
+  </footer>
 </body>
 </html>
